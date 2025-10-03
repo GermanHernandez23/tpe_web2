@@ -12,7 +12,7 @@
 Ambas tablas están vinculadas mediante el campo id_cancha, que actúa como clave foránea en turno y referencia al identificador único de la cancha. De esta manera, se establece una relación de uno a muchos (1:N), ya que una cancha puede tener varios turnos asociados en distintas fechas y horarios, mientras que cada turno pertenece siempre a una única cancha.
 
 ### DER:
--  ![DER](der.png)
+-  ![DER](img/der.png)
 
 ### SQL:
 - [CODIGO SQL](turnos_padel.sql)
