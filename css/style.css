@@ -94,7 +94,7 @@ nav ul a:hover {
     margin: 0rem 4rem;
     background-image: url(../img/hero.jpg);
     background-size: cover;
-    background-position: center bottom;
+    background-position: center ;
     min-height: 450px;
 }
 
@@ -133,6 +133,23 @@ nav ul a:hover {
 }
 
 .btn-hero:hover {
+    background-color: var(--color-tertiary);
+    color: var(--color-secondary);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+.btn-cancha {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--color-hover);
+    color: var(--color-base);
+    text-decoration: none;
+    border-radius: 5px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    font-size: var(--size-medium);
+}
+
+.btn-cancha:hover {
     background-color: var(--color-tertiary);
     color: var(--color-secondary);
     transform: translateY(-3px);
