@@ -1,0 +1,26 @@
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 5rem;
+    background-color: var(--color-primary);
+    height: 70px;
+}
+
+.footer {
+    display: flex;
+    gap: 15rem;
+    align-items: center;
+}
+
+.footer div ul {
+    display: flex;
+}
+
+.footer div ul li {
+    list-style: none;
+}
+
+.img-footer {
+    width: 1.2rem;
+}

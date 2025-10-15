@@ -1,0 +1,6 @@
+/* BG HERO IMG */
+.hero {
+    background-image: url(../img/hero-2.jpg);
+    background-size: cover;
+    background-position: center bottom;
+}

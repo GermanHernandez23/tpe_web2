@@ -1,0 +1,18 @@
+:root {
+    /* Colores */
+    --color-base: #0a0a0a;
+    --color-primary: #00ff80;
+    --color-secondary: #f4f4f4;
+    --color-tertiary: #ff0080;
+    --color-hover: #00b45a;
+
+    /* Tipografías */
+    --font-heading: 'Lalezar', sans-serif;
+    --font-body: 'Roboto', sans-serif;
+    --font-alt: 'Montserrat', sans-serif;
+
+    /* Tamaños base */
+    --size-base: 1rem;
+    --size-medium: 1.25rem;
+    --size-large: 3rem;
+}
