@@ -1,0 +1,48 @@
+/* Estilos para el formulario de turnos */
+.turno-form {
+    max-width: 400px;
+    margin: 30px auto;
+    padding: 30px 24px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.turno-form label {
+    font-weight: 600;
+    color: #29ff1e;
+    margin-bottom: 4px;
+}
+
+.turno-form input {
+    padding: 10px;
+    border: 1px solid #d0d0d0;
+    border-radius: 6px;
+    font-size: 1em;
+    outline: none;
+    transition: border 0.2s;
+}
+
+.turno-form input:focus {
+    border-color: #1e90ff;
+}
+
+.turno-form .btn-cancha {
+    background: #1e90ff;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 12px 0;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.2s;
+}
+
+.turno-form .btn-cancha:hover {
+    background: #1565c0;
+}

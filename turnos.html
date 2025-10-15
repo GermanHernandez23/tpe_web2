@@ -7,6 +7,7 @@
     <title>Tapia Academy</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/turnos.css">
+    <link rel="stylesheet" href="css/formulario.css">
 </head>
 
 <body>
@@ -33,11 +34,23 @@
             </div>
             <a href="" class="btn-hero">Reservar Turno</a>
         </section>
+
         <section class="shifts">
             <h2>Reserva tu turno de padel</h2>
             <div class="line"></div>
-            <div class="db"></div>
+            <form class="turno-form" action="#" method="post">
+                <label for="nombre">Nombre</label>
+                <input type="text" id="nombre" name="nombre" required placeholder="Ej: Juan Pérez">
+                <label for="telefono">Teléfono</label>
+                <input type="tel" id="telefono" name="telefono" required pattern="[0-9]+" placeholder="Ej: 2494320564">
+                <label for="fecha">Día</label>
+                <input type="date" id="fecha" name="fecha" required>
+                <label for="horario">Horario</label>
+                <input type="time" id="horario" name="horario" required>
+                <button type="submit" class="btn-cancha">Reservar turno</button>
+            </form>
         </section>
+
     </main>
     <footer>
         <div class="footer">
