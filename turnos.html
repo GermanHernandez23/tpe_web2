@@ -43,10 +43,14 @@
                 <input type="text" id="nombre" name="nombre" required placeholder="Ej: Juan Pérez">
                 <label for="telefono">Teléfono</label>
                 <input type="tel" id="telefono" name="telefono" required pattern="[0-9]+" placeholder="Ej: 2494320564">
-                <label for="fecha">Día</label>
+                <label for="fecha">fecha</label>
                 <input type="date" id="fecha" name="fecha" required>
-                <label for="horario">Horario</label>
-                <input type="time" id="horario" name="horario" required>
+                <label for="tipo_cancha">Tipo Cancha</label>
+                <select name="curt" id="curt">
+                    <option value="">profesional</option>
+                    <option value="">single</option>
+                    <option value="">amateur</option>
+                </select>
                 <button type="submit" class="btn-cancha">Reservar turno</button>
             </form>
         </section>
