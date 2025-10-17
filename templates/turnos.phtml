@@ -38,7 +38,7 @@
         <section class="shifts">
             <h2>Reserva tu turno de padel</h2>
             <div class="line"></div>
-            <form class="turno-form" action="#" method="post">
+            <form class="turno-form" method="POST" action="shiftController.php?method=addShift">
                 <label for="nombre">Nombre</label>
                 <input type="text" id="nombre" name="nombre" required placeholder="Ej: Juan Pérez">
                 <label for="telefono">Teléfono</label>
@@ -46,7 +46,7 @@
                 <label for="fecha">fecha</label>
                 <input type="date" id="fecha" name="fecha" required>
                 <label for="tipo_cancha">Tipo Cancha</label>
-                <select name="curt" id="curt">
+                <select name="curt" id="court">
                     <option value="">profesional</option>
                     <option value="">single</option>
                     <option value="">amateur</option>
@@ -60,18 +60,18 @@
         <div class="footer">
             <div>
                 <ul>
-                    <li><img src="img/map-pin-solid-full.svg" alt="map-icon" class="img-footer"></li>
+                    <li><img src="../img/map-pin-solid-full.svg" alt="map-icon" class="img-footer"></li>
                     <li>2494320564</li>
                 </ul>
                 <ul>
-                    <li><img src="img/phone-solid-full.svg" alt="phone-icon" class="img-footer"></li>
+                    <li><img src="../img/phone-solid-full.svg" alt="phone-icon" class="img-footer"></li>
                     <li>Av. Avellaneda 671</li>
                 </ul>
             </div>
             <p>© 2025-Tapia Academy</p>
             <div>
                 <ul>
-                    <li><img src="img/instagram-brands-solid-full.svg" alt="ig-icon" class="img-footer"></li>
+                    <li><img src="../img/instagram-brands-solid-full.svg" alt="ig-icon" class="img-footer"></li>
                     <li>tapia.academy</li>
                 </ul>
             </div>
