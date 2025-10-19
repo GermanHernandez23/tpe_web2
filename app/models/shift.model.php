@@ -5,7 +5,7 @@ class ShiftModel {
 
     function __construct() {
      // 1. abro conexión con la DB
-     $this->db = new PDO('mysql:host=localhost;dbname=tp_web2;charset=utf8', 'root', '');
+     $this->db = new PDO('mysql:host=localhost;dbname=tpe_web2_tudai;charset=utf8', 'root', '');
     }
 
     public function get($id) {
@@ -13,7 +13,7 @@ class ShiftModel {
         $query->execute([$id]);
         $shift = $query->fetch(PDO::FETCH_OBJ);
 
-        return $shift
+        return $shift;
     }
     
     public function getAll() {
@@ -22,7 +22,7 @@ class ShiftModel {
         $query->execute();
 
         // 3. obtengo los resultados de la consulta
-        $tasks = $query->fetchAll(PDO::FETCH_OBJ);
+        $shift = $query->fetchAll(PDO::FETCH_OBJ);
 
         return $shift;
     }

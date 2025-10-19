@@ -1,5 +1,5 @@
 <?php
-require_once './app/models/shift.php';
+require_once './app/models/shift.model.php';
 require_once './app/views/shift.view.php';
 
 define('MAX_PRIORITY', 5);
@@ -16,9 +16,17 @@ class ShiftController {
     function showShift($request) {
         // pido las tareas al modelo
         $Shift = $this->model->getAll();
+        $name = null;
+        if (is_object($request) && isset($request->name)) {
+            $name = $request->name;
+        } elseif (is_array($request) && isset($request['name'])) {
+            $name = $request['name'];
+        }
 
         // se las mando a la vista
-        $this->view->showShift($Shift, $request->name);
+        $this->view->showShift($Shift, $name);
+        // se las mando a la vista
+        //$this->view->showShift($Shift, $request->name);
     }
 
     function addShift($request) {
