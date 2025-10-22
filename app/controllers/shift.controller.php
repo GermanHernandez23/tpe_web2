@@ -2,75 +2,68 @@
 require_once './app/models/shift.model.php';
 require_once './app/views/shift.view.php';
 
-define('MAX_PRIORITY', 5);
-
 class ShiftController {
     private $model;
     private $view;
 
-    function __construct() {
+    public function __construct($res) {
         $this->model = new ShiftModel();
-        $this->view = new ShiftView();
+        $this->view = new ShiftView($res->user);
     }
+
+    public function showShifts() {
+        // obtengo las tareas de la DB
+        $Shift = $this->model->getShifts();
+
+        // mando las tareas a la vista
+        return $this->view->showShifts($Shift);
+    }
+
+    public function addShift() {
+        if (!isset($_POST['title']) || empty($_POST['title'])) {
+            return $this->view->showError('Falta completar el título');
+        }
     
-    function showShift($request) {
-        // pido las tareas al modelo
-        $Shift = $this->model->getAll();
-        $name = null;
-        if (is_object($request) && isset($request->name)) {
-            $name = $request->name;
-        } elseif (is_array($request) && isset($request['name'])) {
-            $name = $request['name'];
-        }
-
-        // se las mando a la vista
-        $this->view->showShift($Shift, $name);
-        // se las mando a la vista
-        //$this->view->showShift($Shift, $request->name);
-    }
-
-    function addShift($request) {
-        if (!isset($_POST['nomnbre']) || empty($_POST['telefono'])) {
-            return $this->view->showError('Error: falta completar el titulo', $request->user);
-        }
-
         if (!isset($_POST['priority']) || empty($_POST['priority'])) {
-            return $this->view->showError('Error: falta completar la prioridad');
+            return $this->view->showError('Falta completar la prioridad');
         }
-
-        // obtengo los datos del formulario
-        $name = $_POST['nombre'];
-        $phone = $_POST['telefono'];
-        $date = $_POST['fecha'];
-        $court = $_POST['court'];
-        $time = $_POST['horario'];
-
-        $id = $this->model->insert($name, $phone, $date, $court, $time);
-
-        if (!$id) {
-            return $this->view->showError('Error la insertar tarea', $request->user);
-        } 
-
-        // redirijo al home
+    
+        $title = $_POST['title'];
+        $description = $_POST['description'];
+        $priority = $_POST['priority'];
+    
+        $id = $this->model->insertShift($id, $nombre, $telefono, $horario, $fecha, $id_cancha);
+    
+        // redirijo al home (también podriamos usar un método de una vista para motrar un mensaje de éxito)
         header('Location: ' . BASE_URL);
     }
 
-    public function removeTask($request) {
-        // obtengo la tarea que quiero eliminar
-        $Shift = $this->model->get($request->id);
+    
+    public function deleteShift($id) {
+        // obtengo la tarea por id
+        $Shift = $this->model->getShifts($id);
 
         if (!$Shift) {
-            return $this->view->showError("No existe la tarea con el id=$request->id", $request->user);
+            return $this->view->showError("No existe la tarea con el id=$id");
         }
 
-        if ((int) $Shift->prioridad === MAX_PRIORITY) {
-            return $this->view->showError('No se puede eliminar una tarea con prioridad 5', $request->user);
-        }
+        // borro la tarea y redirijo
+        $this->model->eraseShift($id);
 
-        $this->model->remove($request->id);
-
-        // redirijo al home
         header('Location: ' . BASE_URL);
     }
 
+    public function finishShift($id) {
+        $task = $this->model->getShifts($id);
+
+        if (!$Shift) {
+            return $this->view->showError("No existe la tarea con el id=$id");
+        }
+
+        // actualiza la tarea
+        $this->model->updateShift($id);
+
+        header('Location: ' . BASE_URL);
+    }
 }
+
